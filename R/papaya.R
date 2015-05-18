@@ -23,7 +23,7 @@ papaya <- function(
     images = list(images)
   }
 #   images = sapply(images, checkimg, check_type = TRUE)
-  images = sapply(images, checkimg, check_type = TRUE)
+  images = sapply(images, checkimg)
   # range
   #####################
   # Have to copy to temporary directory for js to work it seemed
