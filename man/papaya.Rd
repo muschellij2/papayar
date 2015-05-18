@@ -17,6 +17,7 @@ Writes temporary images out from nifti objects or passes character filenames
 of images to papaya JS viewer
 }
 \examples{
+library(fslr)
 x = nifti(img = array(rnorm(100^3), dim= rep(100, 3)), dim=rep(100, 3), datatype=16)
 thresh = datatyper(x > 1)
 odir = papaya(list(x, thresh))

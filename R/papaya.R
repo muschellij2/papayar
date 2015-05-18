@@ -8,6 +8,7 @@
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output directory where index.html, js, and copied nii.gz files
 #' @examples
+#' library(fslr)
 #' x = nifti(img = array(rnorm(100^3), dim= rep(100, 3)), dim=rep(100, 3), datatype=16)
 #' thresh = datatyper(x > 1)
 #' odir = papaya(list(x, thresh))
