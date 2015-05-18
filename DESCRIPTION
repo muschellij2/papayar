@@ -1,0 +1,12 @@
+Package: papayar
+Type: Package
+Title: View NIfTI Images using Papaya
+Version: 1.0
+Date: 2015-05-18
+Author: John Muscelli
+Maintainer: John Muschelli <muschellij2@gmail.com>
+Description: This package allows users to view images interactively using a lightweight Javascript viewer called Papaya.
+Imports:
+  fslr,
+  oro.nifti
+License: GPL-2
