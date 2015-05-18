@@ -22,6 +22,7 @@ papaya <- function(
   if (is.nifti(images)){
     images = list(images)
   }
+#   images = sapply(images, checkimg, check_type = TRUE)
   images = sapply(images, checkimg, check_type = TRUE)
   # range
   #####################
