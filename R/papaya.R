@@ -22,8 +22,8 @@ papaya <- function(
   if (is.nifti(images)){
     images = list(images)
   }
-  images = sapply(images, checkimg)
-  ragne
+  images = sapply(images, checkimg, check_type = TRUE)
+  # range
   #####################
   # Have to copy to temporary directory for js to work it seemed
   #####################
@@ -40,6 +40,7 @@ papaya <- function(
   images = basename(outfiles)
   images = paste0('"', images, '"')
   images = paste(images, collapse = ", ")
+  L = list()
   L$images = images
   pass_papaya(L, outdir = outdir)
   return(outdir)
