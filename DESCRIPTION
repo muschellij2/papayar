@@ -3,7 +3,7 @@ Type: Package
 Title: View NIfTI Images using Papaya
 Version: 1.0
 Date: 2015-05-18
-Author: John Muscelli
+Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Users pass images and nifti objects to a Papaya: an interactive lightweight Javascript viewer.
 Imports:
