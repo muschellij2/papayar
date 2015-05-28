@@ -7,12 +7,12 @@
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output directory where index.html, js, and copied nii.gz files
-#' @examples
+#' @examples \dontrun{
 #' library(fslr)
 #' x = nifti(img = array(rnorm(100^3), dim= rep(100, 3)), dim=rep(100, 3), datatype=16)
 #' thresh = datatyper(x > 1)
-#' odir = papaya(list(x, thresh))
-#' cat(paste0("# All files are located in \n", odir))
+#' index.file = papaya(list(x, thresh))
+#' }
 papaya <- function(
   images # character filenames or \code{nifti} objects to be viewed
   ){

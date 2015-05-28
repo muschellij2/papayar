@@ -8,6 +8,8 @@ embed_papaya(images, outdir = NULL)
 }
 \arguments{
 \item{images}{character filenames or \code{nifti} objects to be viewed}
+
+\item{outdir}{output directory for index and all to go}
 }
 \value{
 Output html

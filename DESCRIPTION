@@ -1,14 +1,19 @@
 Package: papayar
 Type: Package
-Title: View NIfTI Images using Papaya
+Title: View Medical Research Images using the Papaya JavaScript Library
 Version: 1.0
 Date: 2015-05-18
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
-Description: Users pass images and nifti objects to a Papaya: an interactive lightweight Javascript viewer.
+Description: Users pass images and objects of class nifti from the oro.nifti 
+  package to a Papaya, an interactive lightweight Javascript viewer. 
+  The viewer is based off of the software Mango, which is a lightweight 
+  medical image viewer.
 Imports:
   fslr,
   oro.nifti,
-  rstudio,
+  rstudioapi,
   servr
 License: GPL-3
+URL: https://github.com/rii-mango/Papaya/
+BugReports: https://github.com/muschellij2/papayar/issues

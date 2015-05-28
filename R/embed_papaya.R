@@ -3,10 +3,11 @@
 #' @description Writes temporary images out from nifti objects or passes character filenames
 #' of images to papaya JS viewer
 #' @param images character filenames or \code{nifti} objects to be viewed
-#' @export
+#' @param outdir output directory for index and all to go
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
+#@export
 embed_papaya <- function(
   images, # character filenames or \code{nifti} objects to be viewed
   outdir = NULL

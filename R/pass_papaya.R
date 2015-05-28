@@ -6,7 +6,7 @@
 #' @param outdir output directory for index and all to go
 #' @param height passed to \code{\link[rstudio]{viewer}}
 #' @export
-#' @importFrom rstudio viewer
+#' @importFrom rstudioapi viewer
 #' @importFrom servr httd
 #' @return NULL
 pass_papaya <- function(
@@ -61,7 +61,7 @@ pass_papaya <- function(
   viewer <- getOption("viewer")
   if (!is.null(viewer)){
 #     cat("# In the viewer\n")
-    rstudio::viewer(index.file, height=height)
+    rstudioapi::viewer(index.file, height=height)
   } else {
 #     cat("# Not In the viewer\n")
     httd(outdir)

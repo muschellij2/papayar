@@ -17,10 +17,11 @@ Writes temporary images out from nifti objects or passes character filenames
 of images to papaya JS viewer
 }
 \examples{
+\dontrun{
 library(fslr)
 x = nifti(img = array(rnorm(100^3), dim= rep(100, 3)), dim=rep(100, 3), datatype=16)
 thresh = datatyper(x > 1)
-odir = papaya(list(x, thresh))
-cat(paste0("# All files are located in \\n", odir))
+index.file = papaya(list(x, thresh))
+}
 }
 
