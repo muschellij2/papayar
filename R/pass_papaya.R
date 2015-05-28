@@ -4,16 +4,18 @@
 #' of images to papaya JS viewer
 #' @param L list of arguments passed to papaya using params
 #' @param outdir output directory for index and all to go
+#' @param height passed to \code{\link[rstudio]{viewer}}
 #' @export
 #' @importFrom rstudio viewer
 #' @return NULL
 pass_papaya <- function(
   L = NULL,
-  outdir = NULL
+  outdir = NULL,
+  height= "maximize"
 ){
   ##################
   #Create temporary directory for things to go
-  ##################  
+  ##################    
   if (is.null(outdir)){
     outdir = tempfile()
     if (!file.exists(outdir)){
@@ -25,7 +27,7 @@ pass_papaya <- function(
   ##################  
   files = c("index.html", "papaya.css", "papaya.js")
   files = sapply(files, system.file, package="papayar")
-  file.copy(files, to=outdir, overwrite = TRUE)
+  file.copy(files, to = outdir, overwrite = TRUE)
   
   ##################
   # Reading in the index file to add to
@@ -55,15 +57,13 @@ pass_papaya <- function(
   ##################
   # browsing the file
   ##################
-  browseURL(index.file)  
   viewer <- getOption("viewer")
   if (!is.null(viewer)){
     cat("# In the viewer\n")
-    rstudio::viewer(index.file)
-  } 
-#   else {
-#     cat("# Not In the viewer\n")
-#     utils::browseURL(index.file)  
-#   }
+    rstudio::viewer(index.file, height=height)
+  } else {
+    cat("# Not In the viewer\n")
+    utils::browseURL(index.file)  
+  }
   return(index.file)
 }
