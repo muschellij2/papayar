@@ -7,8 +7,10 @@ Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Users pass images and objects of class nifti from the oro.nifti 
   package to a Papaya, an interactive lightweight Javascript viewer. 
-  The viewer is based off of the software Mango, which is a lightweight 
-  medical image viewer.
+  Although many packages can view individual slices or projections of 
+  image and matrix data, this package allows for quick and easy 
+  interactive browsing of images.  The viewer is based off of the 
+  Mango software, which is a lightweight medical image viewer.  
 Imports:
   fslr,
   oro.nifti,

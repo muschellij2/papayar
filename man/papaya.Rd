@@ -4,10 +4,14 @@
 \alias{papaya}
 \title{View images with Papaya}
 \usage{
-papaya(images)
+papaya(images, outdir = NULL, ...)
 }
 \arguments{
 \item{images}{character filenames or \code{nifti} objects to be viewed}
+
+\item{outdir}{output directory for index and all to go}
+
+\item{...}{Options to be passed to \code{\link{pass_papaya}}}
 }
 \value{
 Output directory where index.html, js, and copied nii.gz files

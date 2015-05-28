@@ -19,10 +19,11 @@ pass_papaya <- function(
   ##################    
   if (is.null(outdir)){
     outdir = tempfile()
-    if (!file.exists(outdir)){
-      dir.create(outdir)
-    }
   }
+  if (!file.exists(outdir)){
+    dir.create(outdir)
+  }
+  
   ##################
   # Copy over the requirements for papaya
   ##################  

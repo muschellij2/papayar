@@ -3,6 +3,8 @@
 #' @description Writes temporary images out from nifti objects or passes character filenames
 #' of images to papaya JS viewer
 #' @param images character filenames or \code{nifti} objects to be viewed
+#' @param outdir output directory for index and all to go 
+#' @param ... Options to be passed to \code{\link{pass_papaya}}
 #' @export
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
@@ -14,7 +16,9 @@
 #' index.file = papaya(list(x, thresh))
 #' }
 papaya <- function(
-  images # character filenames or \code{nifti} objects to be viewed
+  images, # character filenames or \code{nifti} objects to be viewed
+  outdir = NULL,
+  ...
   ){
   #####################
   # Make sure they are nifti
@@ -25,14 +29,16 @@ papaya <- function(
 #   images = sapply(images, checkimg, check_type = TRUE)
   images = sapply(images, checkimg)
   # range
-  #####################
-  # Have to copy to temporary directory for js to work it seemed
-  #####################
-  outdir = tempfile()
+  ##################
+  #Create temporary directory for things to go
+  ##################    
+  if (is.null(outdir)){
+    outdir = tempfile()
+  }
   if (!file.exists(outdir)){
     dir.create(outdir)
   }
-  
+
   #####################
   # Copying image to output directory
   #####################
