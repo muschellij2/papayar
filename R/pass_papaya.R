@@ -4,7 +4,9 @@
 #' of images to papaya JS viewer
 #' @param L list of arguments passed to papaya using params
 #' @param outdir output directory for index and all to go
-#' @param height passed to \code{\link[rstudio]{viewer}}
+#' @param force_browser Force the browsing in the browser 
+#' (as opposed to RStudio Viewer)
+#' @param height passed to \code{\link[rstudio]{viewer}}, try "maximize"
 #' @export
 #' @importFrom rstudioapi viewer
 #' @importFrom servr httd
@@ -12,7 +14,8 @@
 pass_papaya <- function(
   L = NULL,
   outdir = NULL,
-  height= "maximize"
+  force_browser = FALSE,
+  height = NULL
 ){
   ##################
   #Create temporary directory for things to go
@@ -60,13 +63,13 @@ pass_papaya <- function(
   # browsing the file
   ##################
   viewer <- getOption("viewer")
-  if (!is.null(viewer)){
-#     cat("# In the viewer\n")
-    rstudioapi::viewer(index.file, height=height)
-  } else {
-#     cat("# Not In the viewer\n")
+  if (is.null(viewer) | force_browser){
+    cat("# Not in the viewer\n")
     httd(outdir)
-    utils::browseURL(index.file)  
+    utils::browseURL(index.file)
+  } else {
+    cat("# In the viewer\n")
+    rstudioapi::viewer(index.file, height=height)
   }
   return(index.file)
 }

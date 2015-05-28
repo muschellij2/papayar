@@ -49,7 +49,6 @@ papaya <- function(
   images = paste(images, collapse = ", ")
   L = list()
   L$images = images
-  index.file = pass_papaya(L, outdir = outdir)
-#   return(outdir)
+  index.file = pass_papaya(L, outdir = outdir, ...)
   return(index.file)
 }

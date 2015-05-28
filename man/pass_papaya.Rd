@@ -4,14 +4,18 @@
 \alias{pass_papaya}
 \title{View images with Papaya}
 \usage{
-pass_papaya(L = NULL, outdir = NULL, height = "maximize")
+pass_papaya(L = NULL, outdir = NULL, force_browser = FALSE,
+  height = NULL)
 }
 \arguments{
 \item{L}{list of arguments passed to papaya using params}
 
 \item{outdir}{output directory for index and all to go}
 
-\item{height}{passed to \code{\link[rstudio]{viewer}}}
+\item{force_browser}{Force the browsing in the browser
+(as opposed to RStudio Viewer)}
+
+\item{height}{passed to \code{\link[rstudio]{viewer}}, try "maximize"}
 }
 \description{
 Writes temporary images out from nifti objects or passes character filenames
