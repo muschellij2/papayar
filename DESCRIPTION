@@ -9,5 +9,6 @@ Description: Users pass images and nifti objects to a Papaya: an interactive lig
 Imports:
   fslr,
   oro.nifti,
-  rstudio
+  rstudio,
+  servr
 License: GPL-3

@@ -7,6 +7,7 @@
 #' @param height passed to \code{\link[rstudio]{viewer}}
 #' @export
 #' @importFrom rstudio viewer
+#' @importFrom servr httd
 #' @return NULL
 pass_papaya <- function(
   L = NULL,
@@ -63,6 +64,7 @@ pass_papaya <- function(
     rstudio::viewer(index.file, height=height)
   } else {
 #     cat("# Not In the viewer\n")
+    httd(outdir)
     utils::browseURL(index.file)  
   }
   return(index.file)
