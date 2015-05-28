@@ -59,10 +59,10 @@ pass_papaya <- function(
   ##################
   viewer <- getOption("viewer")
   if (!is.null(viewer)){
-    cat("# In the viewer\n")
+#     cat("# In the viewer\n")
     rstudio::viewer(index.file, height=height)
   } else {
-    cat("# Not In the viewer\n")
+#     cat("# Not In the viewer\n")
     utils::browseURL(index.file)  
   }
   return(index.file)
