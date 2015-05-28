@@ -4,7 +4,7 @@
 \alias{embed_papaya}
 \title{Embed images with Papaya}
 \usage{
-embed_papaya(images)
+embed_papaya(images, outdir = NULL)
 }
 \arguments{
 \item{images}{character filenames or \code{nifti} objects to be viewed}

@@ -8,7 +8,8 @@
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
 embed_papaya <- function(
-  images # character filenames or \code{nifti} objects to be viewed
+  images, # character filenames or \code{nifti} objects to be viewed
+  outdir = NULL
 ){
   #####################
   # Make sure they are nifti
@@ -22,7 +23,9 @@ embed_papaya <- function(
   #####################
   # Have to copy to temporary directory for js to work it seemed
   #####################
-  outdir = tempfile()
+  if (is.null(outdir)){
+    outdir = tempfile()
+  }
   if (!file.exists(outdir)){
     dir.create(outdir)
   }
@@ -66,9 +69,11 @@ embed_papaya <- function(
   ##################
   cssfile = system.file("papaya.css", package="papayar")
   jsfile = system.file("papaya.js", package="papayar")
-  css = sprintf('<link rel="stylesheet" type="text/css" href="%s" />\n', 
+  css = sprintf(
+    '<link rel="stylesheet" type="text/css" href="%s?version=0.7&build=744" />\n', 
                 cssfile)
-  js = sprintf('<script type="text/javascript" src="%s?version=0.7&build=744"></script>\n', 
+  js = sprintf(
+    '<script type="text/javascript" src="%s?version=0.7&build=744"></script>\n', 
                jsfile)
   
   index = c(css, js, top, cmd, bottom)

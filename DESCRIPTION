@@ -8,5 +8,6 @@ Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Users pass images and nifti objects to a Papaya: an interactive lightweight Javascript viewer.
 Imports:
   fslr,
-  oro.nifti
-License: GPL-2
+  oro.nifti,
+  rstudio
+License: GPL-3

@@ -5,6 +5,7 @@
 #' @param L list of arguments passed to papaya using params
 #' @param outdir output directory for index and all to go
 #' @export
+#' @importFrom rstudio viewer
 #' @return NULL
 pass_papaya <- function(
   L = NULL,
@@ -55,4 +56,14 @@ pass_papaya <- function(
   # browsing the file
   ##################
   browseURL(index.file)  
+  viewer <- getOption("viewer")
+  if (!is.null(viewer)){
+    cat("# In the viewer\n")
+    rstudio::viewer(index.file)
+  } 
+#   else {
+#     cat("# Not In the viewer\n")
+#     utils::browseURL(index.file)  
+#   }
+  return(index.file)
 }
