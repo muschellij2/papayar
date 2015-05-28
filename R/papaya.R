@@ -43,7 +43,11 @@ papaya <- function(
   # Copying image to output directory
   #####################
   outfiles = file.path(outdir, basename(images))
-  file.copy(images, to = outfiles, overwrite = TRUE)
+  fc = file.copy(images, to = outfiles, overwrite = TRUE)
+  if (!all(fc)){
+    stop("# Some files passed in are not found!")
+  }
+
   images = basename(outfiles)
   images = paste0('"', images, '"')
   images = paste(images, collapse = ", ")

@@ -4,19 +4,20 @@
 #' of images to papaya JS viewer
 #' @param L list of arguments passed to papaya using params
 #' @param outdir output directory for index and all to go
-#' @param force_browser Force the browsing in the browser 
-#' (as opposed to RStudio Viewer)
-#' @param height passed to \code{\link[rstudio]{viewer}}, try "maximize"
+#' @param daemon Argument passed to \code{\link[servr]{server_config}}
+#' @param close_on_exit Should the server close once the function finishes? 
+#' @param sleeper Time in seconds to sleep if \code{close_on_exit = TRUE}.
+#' This allows the server to start up.
 #' @export
-#' @importFrom rstudioapi viewer
 #' @importFrom servr httd
 #' @return NULL
 pass_papaya <- function(
   L = NULL,
   outdir = NULL,
-  force_browser = FALSE,
-  height = NULL
-){
+  daemon = ifelse(is.null(getOption("viewer")), TRUE, FALSE),
+  close_on_exit = TRUE,
+  sleeper = 3
+  ){
   ##################
   #Create temporary directory for things to go
   ##################    
@@ -63,20 +64,12 @@ pass_papaya <- function(
   # browsing the file
   ##################
   viewer <- getOption("viewer")
-  daemon = httd(outdir, daemon = TRUE)
-  if (is.null(viewer) | force_browser){
-    utils::browseURL(index.file)
-  } 
-  Sys.sleep(1)
-  servr::daemon_stop(daemon)
-  
-#   if (is.null(viewer) | force_browser){
-#     cat("# Not in the viewer\n")
-#     httd(outdir)
-#     utils::browseURL(index.file)
-#   } else {
-#     cat("# In the viewer\n")
-#     rstudioapi::viewer(index.file, height=height)
-#   }  
+  daemon_name = httd(outdir, daemon = daemon, browser = TRUE)
+  if (close_on_exit){
+    Sys.sleep(sleeper)
+    on.exit({
+      servr::daemon_stop(daemon_name)
+    })
+  }
   return(index.file)
 }

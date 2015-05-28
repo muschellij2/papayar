@@ -4,18 +4,21 @@
 \alias{pass_papaya}
 \title{View images with Papaya}
 \usage{
-pass_papaya(L = NULL, outdir = NULL, force_browser = FALSE,
-  height = NULL)
+pass_papaya(L = NULL, outdir = NULL,
+  daemon = ifelse(is.null(getOption("viewer")), TRUE, FALSE),
+  close_on_exit = TRUE, sleeper = 3)
 }
 \arguments{
 \item{L}{list of arguments passed to papaya using params}
 
 \item{outdir}{output directory for index and all to go}
 
-\item{force_browser}{Force the browsing in the browser
-(as opposed to RStudio Viewer)}
+\item{daemon}{Argument passed to \code{\link[servr]{server_config}}}
 
-\item{height}{passed to \code{\link[rstudio]{viewer}}, try "maximize"}
+\item{close_on_exit}{Should the server close once the function finishes?}
+
+\item{sleeper}{Time in seconds to sleep if \code{close_on_exit = TRUE}.
+This allows the server to start up.}
 }
 \description{
 Writes temporary images out from nifti objects or passes character filenames

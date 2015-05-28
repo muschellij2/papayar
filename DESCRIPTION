@@ -14,7 +14,6 @@ Description: Users pass images and objects of class nifti from the oro.nifti
 Imports:
   fslr,
   oro.nifti,
-  rstudioapi,
   servr
 License: GPL-3
 URL: https://github.com/rii-mango/Papaya/
