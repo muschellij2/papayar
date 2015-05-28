@@ -63,13 +63,20 @@ pass_papaya <- function(
   # browsing the file
   ##################
   viewer <- getOption("viewer")
+  daemon = httd(outdir, daemon = TRUE)
   if (is.null(viewer) | force_browser){
-    cat("# Not in the viewer\n")
-    httd(outdir)
     utils::browseURL(index.file)
-  } else {
-    cat("# In the viewer\n")
-    rstudioapi::viewer(index.file, height=height)
-  }
+  } 
+  Sys.sleep(1)
+  servr::daemon_stop(daemon)
+  
+#   if (is.null(viewer) | force_browser){
+#     cat("# Not in the viewer\n")
+#     httd(outdir)
+#     utils::browseURL(index.file)
+#   } else {
+#     cat("# In the viewer\n")
+#     rstudioapi::viewer(index.file, height=height)
+#   }  
   return(index.file)
 }
