@@ -4,8 +4,7 @@
 \alias{pass_papaya}
 \title{View images with Papaya}
 \usage{
-pass_papaya(L = NULL, outdir = NULL,
-  daemon = ifelse(is.null(getOption("viewer")), TRUE, FALSE),
+pass_papaya(L = NULL, outdir = NULL, daemon = FALSE,
   close_on_exit = TRUE, sleeper = 3)
 }
 \arguments{

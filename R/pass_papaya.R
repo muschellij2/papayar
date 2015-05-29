@@ -14,7 +14,7 @@
 pass_papaya <- function(
   L = NULL,
   outdir = NULL,
-  daemon = ifelse(is.null(getOption("viewer")), TRUE, FALSE),
+  daemon = FALSE,
   close_on_exit = TRUE,
   sleeper = 3
   ){
@@ -64,9 +64,13 @@ pass_papaya <- function(
   # browsing the file
   ##################
   viewer <- getOption("viewer")
+#   cat(paste0("# Daemon is\n", daemon, "\n"))
   daemon_name = httd(outdir, daemon = daemon, browser = TRUE)
   if (close_on_exit){
-    Sys.sleep(sleeper)
+    cat(paste0("# Stopping Server ", daemon_name, " \n"))
+    if (daemon) {
+      Sys.sleep(sleeper)
+    }
     on.exit({
       servr::daemon_stop(daemon_name)
     })
