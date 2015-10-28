@@ -72,7 +72,7 @@ embed_papaya <- function(
   cssfile = system.file("papaya.css", package="papayar")
   jsfile = system.file("papaya.js", package="papayar")
   
-  outfiles = file.path(outdir, c(cssfile, jsfile))
+  outfiles = file.path(outdir, basename(c(cssfile, jsfile)))
   file.copy(c(cssfile, jsfile), to = outfiles, overwrite = TRUE)
   
   css = sprintf(
