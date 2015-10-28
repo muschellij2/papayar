@@ -3,6 +3,7 @@
 export(embed_papaya)
 export(papaya)
 export(pass_papaya)
+import(htmltools)
 importFrom(fslr,checkimg)
 importFrom(oro.nifti,is.nifti)
 importFrom(oro.nifti,nifti)

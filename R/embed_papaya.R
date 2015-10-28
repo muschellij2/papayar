@@ -7,6 +7,7 @@
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
+#' @import htmltools
 #' @export
 embed_papaya <- function(
   images, # character filenames or \code{nifti} objects to be viewed
@@ -70,13 +71,18 @@ embed_papaya <- function(
   ##################
   cssfile = system.file("papaya.css", package="papayar")
   jsfile = system.file("papaya.js", package="papayar")
+  
+  outfiles = file.path(outdir, c(cssfile, jsfile))
+  file.copy(c(cssfile, jsfile), to = outfiles, overwrite = TRUE)
+  
   css = sprintf(
     '<link rel="stylesheet" type="text/css" href="%s?version=0.7&build=744" />\n', 
-                cssfile)
+                basename(cssfile))
   js = sprintf(
     '<script type="text/javascript" src="%s?version=0.7&build=744"></script>\n', 
-               jsfile)
+               basename(jsfile))
   
   index = c(css, js, top, cmd, bottom)
+  index = HTML(index)
   return(index)
 }
