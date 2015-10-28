@@ -7,7 +7,7 @@
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
-#@export
+#' @export
 embed_papaya <- function(
   images, # character filenames or \code{nifti} objects to be viewed
   outdir = NULL
