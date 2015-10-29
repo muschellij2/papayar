@@ -8,6 +8,8 @@
 #' @param close_on_exit Should the server close once the function finishes? 
 #' @param sleeper Time in seconds to sleep if \code{close_on_exit = TRUE}.
 #' This allows the server to start up.
+#' @param version Version of papaya.js and papaya.css to use
+#' @param build Build of papaya.js and papaya.css to use
 #' @export
 #' @importFrom servr httd
 #' @return NULL
@@ -16,7 +18,9 @@ pass_papaya <- function(
   outdir = NULL,
   daemon = FALSE,
   close_on_exit = TRUE,
-  sleeper = 3
+  sleeper = 3,
+  version = "0.8",
+  build = "982"  
   ){
   ##################
   #Create temporary directory for things to go
@@ -32,7 +36,7 @@ pass_papaya <- function(
   # Copy over the requirements for papaya
   ##################  
   files = c("index.html", "papaya.css", "papaya.js")
-  files = sapply(files, system.file, package="papayar")
+  files = sapply(files, system.file, package = "papayar")
   file.copy(files, to = outdir, overwrite = TRUE)
   
   ##################
@@ -40,6 +44,8 @@ pass_papaya <- function(
   ##################
   index.file = file.path(outdir, "index.html")
   index = readLines(index.file)
+  index = gsub("%version%", version, index)
+  index = gsub("%build%", build, index)
   line = grep("var params", index)
   stopifnot(length(line) == 1)
   top = index[seq(line)]

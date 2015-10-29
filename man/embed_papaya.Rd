@@ -4,12 +4,16 @@
 \alias{embed_papaya}
 \title{Embed images with Papaya}
 \usage{
-embed_papaya(images, outdir = NULL)
+embed_papaya(images, outdir = NULL, version = "0.8", build = "982")
 }
 \arguments{
 \item{images}{character filenames or \code{nifti} objects to be viewed}
 
 \item{outdir}{output directory for index and all to go}
+
+\item{version}{Version of papaya.js and papaya.css to use}
+
+\item{build}{Build of papaya.js and papaya.css to use}
 }
 \value{
 Output html

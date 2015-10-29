@@ -5,7 +5,7 @@
 \title{View images with Papaya}
 \usage{
 pass_papaya(L = NULL, outdir = NULL, daemon = FALSE,
-  close_on_exit = TRUE, sleeper = 3)
+  close_on_exit = TRUE, sleeper = 3, version = "0.8", build = "982")
 }
 \arguments{
 \item{L}{list of arguments passed to papaya using params}
@@ -18,6 +18,10 @@ pass_papaya(L = NULL, outdir = NULL, daemon = FALSE,
 
 \item{sleeper}{Time in seconds to sleep if \code{close_on_exit = TRUE}.
 This allows the server to start up.}
+
+\item{version}{Version of papaya.js and papaya.css to use}
+
+\item{build}{Build of papaya.js and papaya.css to use}
 }
 \description{
 Writes temporary images out from nifti objects or passes character filenames

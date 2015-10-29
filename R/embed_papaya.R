@@ -4,6 +4,8 @@
 #' of images to papaya JS viewer
 #' @param images character filenames or \code{nifti} objects to be viewed
 #' @param outdir output directory for index and all to go
+#' @param version Version of papaya.js and papaya.css to use
+#' @param build Build of papaya.js and papaya.css to use 
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
@@ -11,7 +13,9 @@
 #' @export
 embed_papaya <- function(
   images, # character filenames or \code{nifti} objects to be viewed
-  outdir = NULL
+  outdir = NULL,
+  version = "0.8",
+  build = "982"
 ){
   #####################
   # Make sure they are nifti
@@ -76,11 +80,13 @@ embed_papaya <- function(
   file.copy(c(cssfile, jsfile), to = outfiles, overwrite = TRUE)
   
   css = sprintf(
-    '<link rel="stylesheet" type="text/css" href="%s?version=0.7&build=744" />\n', 
-                basename(cssfile))
+    paste0('<link rel="stylesheet" type="text/css" href="%s?version=', 
+           version, '&build=', build, '" />\n'), 
+    basename(cssfile))
   js = sprintf(
-    '<script type="text/javascript" src="%s?version=0.7&build=744"></script>\n', 
-               basename(jsfile))
+    paste0('<script type="text/javascript" src="%s?version=', 
+    version, '&build=', build, '"></script>\n'), 
+    basename(jsfile))
   
   index = c(css, js, top, cmd, bottom)
   index = HTML(index)
