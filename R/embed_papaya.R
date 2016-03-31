@@ -4,8 +4,6 @@
 #' of images to papaya JS viewer
 #' @param images character filenames or \code{nifti} objects to be viewed
 #' @param outdir output directory for index and all to go
-#' @param version Version of papaya.js and papaya.css to use
-#' @param build Build of papaya.js and papaya.css to use 
 #' @importFrom fslr checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
@@ -13,10 +11,11 @@
 #' @export
 embed_papaya <- function(
   images, # character filenames or \code{nifti} objects to be viewed
-  outdir = NULL,
-  version = "0.8",
-  build = "982"
+  outdir = NULL
 ){
+  L = get_papaya_version()
+  build = L$build
+  version = L$version
   #####################
   # Make sure they are nifti
   #####################
