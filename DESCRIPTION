@@ -1,8 +1,8 @@
 Package: papayar
 Type: Package
 Title: View Medical Research Images using the Papaya JavaScript Library
-Version: 0.0.2
-Date: 2016-03-31
+Version: 0.0.3
+Date: 2016-05-11
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Users pass images and objects of class nifti from the oro.nifti
