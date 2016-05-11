@@ -26,6 +26,7 @@ get_papaya_version = function() {
 #'
 #' @return Result of \code{\link{get_papaya_version}} after downloading
 #' @export
+#' @importFrom utils download.file
 update_papaya_build = function(type = c("standard", "minimal", "nodicom", 
                                         "nojquery", "standard-with-atlas-local", 
                                         "standard-with-atlas"), verbose = TRUE) {
