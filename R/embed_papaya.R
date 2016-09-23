@@ -4,7 +4,7 @@
 #' of images to papaya JS viewer
 #' @param images character filenames or \code{nifti} objects to be viewed
 #' @param outdir output directory for index and all to go
-#' @importFrom fslr checkimg
+#' @importFrom neurobase checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output html
 #' @import htmltools

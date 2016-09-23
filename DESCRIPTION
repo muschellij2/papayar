@@ -1,8 +1,8 @@
 Package: papayar
 Type: Package
 Title: View Medical Research Images using the Papaya JavaScript Library
-Version: 0.1.1
-Date: 2016-07-22
+Version: 1.0
+Date: 2016-09-23
 Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Users pass images and objects of class 'nifti' from the 'oro.nifti'
@@ -12,7 +12,7 @@ Description: Users pass images and objects of class 'nifti' from the 'oro.nifti'
     interactive browsing of images.  The viewer is based off of the
     Mango software, which is a lightweight medical image viewer.
 Imports:
-    fslr,
+    neurobase,
     oro.nifti,
     servr,
     htmltools,

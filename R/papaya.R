@@ -6,11 +6,11 @@
 #' @param outdir output directory for index and all to go 
 #' @param ... Options to be passed to \code{\link{pass_papaya}}
 #' @export
-#' @importFrom fslr checkimg
+#' @importFrom neurobase checkimg
 #' @importFrom oro.nifti is.nifti nifti
 #' @return Output directory where index.html, js, and copied nii.gz files
 #' @examples \dontrun{
-#' library(fslr)
+#' library(neurobase)
 #' x = nifti(img = array(rnorm(100^3), dim= rep(100, 3)), dim=rep(100, 3), datatype=16)
 #' thresh = datatyper(x > 1)
 #' index.file = papaya(list(x, thresh))

@@ -22,7 +22,7 @@ of images to papaya JS viewer
 }
 \examples{
 \dontrun{
-library(fslr)
+library(neurobase)
 x = nifti(img = array(rnorm(100^3), dim= rep(100, 3)), dim=rep(100, 3), datatype=16)
 thresh = datatyper(x > 1)
 index.file = papaya(list(x, thresh))
